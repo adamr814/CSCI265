@@ -1,0 +1,46 @@
+Function calcPercentage(integer totPts, integer posPts) returns float gradePercent
+   gradePercent = ((totPts * 100.0) / (posPts * 100.0)) * 100
+
+Function displayLG(float gradePercentage) returns nothing
+   if gradePercentage <= 59.99
+      Put "\nLetter grade F" to output
+   elseif gradePercentage >= 60 and gradePercentage <= 69.99
+      Put "\nLetter grade D" to output
+   elseif gradePercentage >= 70 and gradePercentage <= 79.99
+      Put "\nLetter grade C" to output
+   elseif gradePercentage >= 80 and gradePercentage <= 89.99
+      Put "\nLetter grade B" to output
+   elseif gradePercentage >= 90 and gradePercentage <= 100
+      Put "\nLetter grade A" to output
+
+Function Main () returns nothing
+   integer i
+   integer assignNum
+   integer posPts
+   integer totPts
+   integer assignPts
+   integer assignGrd
+   float gradePercent
+   assignNum = Get next input
+   Put "Assignments: " to output
+   Put assignNum to output
+   
+   while i < assignNum
+      Put "\nYou received " to output
+      assignGrd = Get next input
+      Put assignGrd to output
+      Put " out of " to output
+      assignPts = Get next input
+      Put assignPts to output
+      posPts = posPts + assignPts
+      totPts = totPts + assignGrd
+      i = i + 1
+      
+   Put "\n\nTotal points " to output
+   Put totPts to output
+   Put "\nPossible points " to output
+   Put posPts to output
+   Put "\n" to output
+   gradePercent = calcPercentage(totPts, posPts)
+   Put gradePercent to output with 2 decimal places
+   displayLG(gradePercent)
