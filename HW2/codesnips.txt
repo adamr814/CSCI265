@@ -1,0 +1,42 @@
+def getInfo(classNames):
+    cNa = input("Enter Name of Class     : ")
+    cCr = int(input("Enter Number of Credits : "))
+    cGr = input("Enter Class Grade       : ")
+    print("\n")
+    if cGr == "A" or "a":
+        grade = 4
+    elif cGr == "B" or "b":
+        grade = 3
+    elif cGr == "C" or "c":
+        grade = 2
+    elif cGr == "D" or "d":
+        grade = 1
+    elif cGr == "F" or "f":
+        grade = 0
+    return cNa, cCr, grade
+
+
+def main():
+    grade = None
+    i = 0
+    c = 0
+    totalCredits = 0
+    atCredits = 0
+    honorPoints = 0
+    classNames = []
+    classes = int(input("Enter Total Number of Classes Taken: "))
+    print("\n")
+    for i in range(0, classes):
+        cNa, cCr, grade = getInfo(classNames)
+        classNames.append(cNa)
+        totalCredits += cCr
+        if grade != 0:
+            atCredits += cCr
+        c = cCr * grade
+        honorPoints += c
+    gpa = honorPoints / totalCredits
+    print("GPA: ", gpa)
+    print("Credits Attempted: %10d", totalCredits)
+    print("Credits Passed: ")
+
+main()
